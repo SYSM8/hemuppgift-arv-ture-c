@@ -24,34 +24,23 @@ namespace Hemuppgift_Arv_Temp
 
         public int takePins(int pins)
         {
-            switch(pins)
+            if (pins < 1 || pins > 2)
             {
-                case 1:
-                        if (noPins == 1 && noPins >= 1)
-                        {
-                            noPins -= 1;
-                        Console.WriteLine("En pinne är tagen.");
-                        }
-                        
-                    break;
-                               
-                    
-                case 2:
-                   
-                     if (noPins == 2 && noPins >= 2)
-                    {
-                        noPins -= 2;
-                        Console.WriteLine("Två pinnar är tagna.");
-                    }
-                     break;
-                    
-                        
-                default:
-                    Console.WriteLine("Felaktig inmatning.");
-                 break;
+                Console.WriteLine("Du kan bara ta 1 eller 2 pinnar.");
+                return noPins;
             }
-            return noPins;
 
+            if (noPins >= pins)
+            {
+                noPins -= pins;
+                Console.WriteLine($"{pins} pinne(ar) är tagen.");
+            }
+            else
+            {
+                Console.WriteLine("Det finns inte tillräckligt många pinnar kvar.");
+            }
+
+            return noPins;
 
             //Ta Pins
 
