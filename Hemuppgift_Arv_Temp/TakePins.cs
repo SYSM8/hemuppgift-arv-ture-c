@@ -1,4 +1,5 @@
 ﻿using System.Linq.Expressions;
+using System.Security.Cryptography;
 
 namespace Hemuppgift_Arv_Temp
 {
@@ -8,39 +9,42 @@ namespace Hemuppgift_Arv_Temp
         static void Main(string[] args)
         {
             Board board = new Board(10);
+            Player human = new Player("TureTurk1");
+            Player comp = new ComputerPlayer("NPC");
+            Player thisPlayer = human;
+
             while (board.getNoPins() > 0)
             {
                 Console.WriteLine("Ange antalet pinnar att ta (1 eller 2):");
                 string user = Console.ReadLine();
 
-                try
+                if (board.getNoPins() == 0)
                 {
-                    int takePins = Convert.ToInt32(user);
-                    if (takePins == 1 || takePins == 2)
+                    Console.WriteLine($"{thisPlayer} förlorade");
+
+                    Player winner;
+                    if (thisPlayer == human)
                     {
-                        int remainingPins = board.takePins(takePins);
-                        if (remainingPins == 0)
-                        {
-                            Console.WriteLine("Spelet är avslutat.");
-                            break;
-                        }
-
-
+                        winner = comp;
                     }
                     else
                     {
-                        Console.WriteLine("Felaktig inmatning.");
+                        winner = human;
                     }
+
+                    Console.WriteLine($"{winner.Name} vann spelet.")
+                        break;
                 }
-                catch (Exception ex)
+                if (thisPlayer == human)
                 {
-                    Console.WriteLine($"{ex.Message}");
-
-
-
+                    thisPlayer = comp;
+                }
+                else
+                {
+                    thisPlayer = human;
                 }
 
-               
+
             }
         }
     }
