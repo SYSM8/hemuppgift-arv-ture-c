@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hemuppgift_Arv_Temp;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,6 @@ namespace Hemuppgift_Arv_Temp
         {
 
             public string Name {  get; set; }
-            private string Winner { get; set; }
 
             public Player(string name)
             { 
@@ -19,12 +19,18 @@ namespace Hemuppgift_Arv_Temp
                 
             
             }
-
             public abstract int takePins(Board board);
-
+            
+       
 
 
         }
+
+            
+
+
+
+  
 
         public class HumanPlayer : Player
         {
@@ -50,13 +56,13 @@ namespace Hemuppgift_Arv_Temp
             {
                 private Random random = new Random();
 
-                public ComputerPlayer(string name, string winner) : base(name) { }
+                public ComputerPlayer(string name) : base(name) { }
 
                 public override int takePins(Board board)
                 {
-                    int pinsToTake = board.getNoPins() > 1 ? random.Next(1, 3) : 1;
-                    Console.WriteLine($"{Name} tar {pinsToTake} pinnar.");
-                    return board.takePins(pinsToTake);
+                    int ComputerTake = random.Next(1,3);
+                    Console.WriteLine($"{Name} tar {ComputerTake} pinnar.");
+                    return board.takePins(ComputerTake);
 
                 }
 

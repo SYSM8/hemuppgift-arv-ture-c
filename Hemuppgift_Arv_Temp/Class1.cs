@@ -33,7 +33,7 @@ namespace Hemuppgift_Arv_Temp
             if (noPins >= pins)
             {
                 noPins -= pins;
-                Console.WriteLine($"{pins} pinne(ar) är tagen.");
+                Console.WriteLine($"{pins} pinnar är tagen.");
             }
             else
             {
