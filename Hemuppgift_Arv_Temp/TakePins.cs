@@ -22,14 +22,14 @@ namespace Hemuppgift_Arv_Temp
                     int humanPins = human.takePins(board);
                     if (board.getNoPins() == 0)
                     {
-                        Console.WriteLine($"{human.Name} vann!");
+                        Console.WriteLine($"{human.userID} vann!");
                         break;
                     }
 
                     int compPins = comp.takePins(board);
                     if (board.getNoPins() == 0)
                     {
-                        Console.WriteLine($"{comp.Name} vann!");
+                        Console.WriteLine($"{comp.userID} vann!");
                         break;
                     }
 
