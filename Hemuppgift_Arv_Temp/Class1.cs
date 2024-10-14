@@ -11,19 +11,24 @@ namespace Hemuppgift_Arv_Temp
     public class Board
     {
         private int noPins;
-        private int randomPins;
+        private Random random;
 
-        public Board(int randomPins)
+
+        public Board(int minpin, int maxpin)
         {
-            noPins = randomPins; 
-            setUp(randomPins);
+            random = new Random();
+            noPins = random.Next(minpin, maxpin);
+            
+
+
         }
+       
 
         public void setUp(int pins) 
         {
-            //noPins = pins; //Set game
-            Random random = new Random();
-            randomPins = random.Next(1, randomPins + 1);
+            noPins = pins;
+            
+            
         }
 
 
@@ -68,6 +73,7 @@ namespace Hemuppgift_Arv_Temp
         public int getNoPins() 
         {
             return noPins; // GameOver
+           
         }
 
 

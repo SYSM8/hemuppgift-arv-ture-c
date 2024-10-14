@@ -1,4 +1,5 @@
-﻿using System.Linq.Expressions;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Linq.Expressions;
 using System.Security.Cryptography;
 
 namespace Hemuppgift_Arv_Temp
@@ -8,7 +9,9 @@ namespace Hemuppgift_Arv_Temp
         //Här är main klassen där koden ska testas, lägg in i mappen
         static void Main(string[] args)
         {
-            Board board = new Board(10);
+            
+            Board board = new Board(12, 25);
+            
             
             HumanPlayer human = new HumanPlayer("TureTurk1");
             ComputerPlayer comp = new ComputerPlayer("NPC");
@@ -36,14 +39,19 @@ namespace Hemuppgift_Arv_Temp
                    
                 }
 
-                Console.WriteLine("Game over!");
+                
             }
 
+              //Player förälderklass till Human och Computer,och syftet är att barnklasserna ska ärva egenskaper från föräldern.
+              //HumanPlayer p = new HumanPlayer("Rhaenyra");
+              // Arv gör att koden blir smidigare att bygga och underhålla. Sen så återanvänderman koden så att man slipper skriva om den.
+              // Player gör att barnklasserna har samma struktur att följa men med lite skillnader,
+              // då human är mänsklig input medan computer är automatisk. Men strukturen och slutmålet är densamma. 
+           
 
 
 
-
-
+            
 
 
 
