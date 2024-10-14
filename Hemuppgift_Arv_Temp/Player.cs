@@ -8,8 +8,11 @@ using System.Threading.Tasks;
 namespace Hemuppgift_Arv_Temp
 {
 
-        public abstract class Player 
-        {
+    
+
+
+    public abstract class Player 
+    {
 
             public string Name {  get; set; }
 
@@ -24,7 +27,7 @@ namespace Hemuppgift_Arv_Temp
        
 
 
-        }
+    }
 
             
 

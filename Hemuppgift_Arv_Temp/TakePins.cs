@@ -9,13 +9,38 @@ namespace Hemuppgift_Arv_Temp
         static void Main(string[] args)
         {
             Board board = new Board(10);
-            Player human = new HumanPlayer("TureTurk1");
-            Player comp = new ComputerPlayer("NPC");
+            
+            HumanPlayer human = new HumanPlayer("TureTurk1");
+            ComputerPlayer comp = new ComputerPlayer("NPC");
+
+            StartGame(board, human, comp);
+
+             static void StartGame(Board board, Player human, Player comp)
+            {
+                while (board.getNoPins() > 0)
+                {
+                    int humanPins = human.takePins(board);
+                    if (board.getNoPins() == 0)
+                    {
+                        Console.WriteLine($"{human.Name} vann!");
+                        break;
+                    }
+
+                    int compPins = comp.takePins(board);
+                    if (board.getNoPins() == 0)
+                    {
+                        Console.WriteLine($"{comp.Name} vann!");
+                        break;
+                    }
+
+                   
+                }
+
+                Console.WriteLine("Game over!");
+            }
 
 
-            while (board.Pins > 0) ;
-            
-            
+
 
 
 
